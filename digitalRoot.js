@@ -16,7 +16,7 @@ function digital_root(n) {
     let arr = n.toString().split('');
     let numArr = arr.map(element => parseInt(element, 10));
     let reduced = numArr.reduce((a, b) => a + b);
-    if (reduced > 10){
+    if (reduced > 9){
        return digital_root(reduced);
     } else {
       return reduced;
