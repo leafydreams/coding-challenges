@@ -12,6 +12,22 @@ Examples
 
 */
 
+// ****Refactored to include function chaining****
+
+function digital_root(n) {
+    let arr = n.toString()
+                .split('')
+                .map(element => parseInt(element, 10))
+                .reduce((a, b) => a + b);
+    if (arr > 9){
+       return digital_root(arr);
+    } else {
+      return arr;
+    }
+}
+
+// First attempt
+
 function digital_root(n) {
     let arr = n.toString().split('');
     let numArr = arr.map(element => parseInt(element, 10));
