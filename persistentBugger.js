@@ -18,11 +18,10 @@ function persistence(num, count = 0) {
                       .split('')
                       .map(element => Number(element))
                       .reduce((a, b) => a * b);
+    count++
     if (numArr > 9) {
-      count++
       return persistence(numArr, count);
     } else {
-      count++
       return count;
     }
   }
