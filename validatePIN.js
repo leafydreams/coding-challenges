@@ -12,13 +12,14 @@ Examples (Input --> Output)
 */
 
 function validatePIN (pin) {
-    const regexFour = /\d{4}/g;
-    const regexSix = /\d{6}/g;
+    let counter = 0;
+    const regex = /\d/g;
     let pinCheck = pin.split('');
     if (pinCheck.length != 4 && pinCheck.length != 6){
       return false;
     }
-    return regexFour.test(pin) || regexSix.test(pin) ? true : false;
+    pinCheck.forEach(digit => digit.match(regex) ? null : counter++);
+    return counter > 0 ? false : true;
   }
 
   /*
