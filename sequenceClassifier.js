@@ -18,41 +18,35 @@ Try to achieve a good solution that runs in linear time; also, do it functionall
 in even poorer words, do NOT modify the initial input!
 
 */
-
 function sequenceClassifier(arr){
-    let trackedNum = 0;
-    let increase = 0;
-    let decrease = 0;
-    let same = 0;
-    for (let i = 0; i < arr.length; i++){
-      for (let j = i + 1; j < arr.length; j++){
-        trackedNum = arr[i];
-        if (trackedNum < arr[j]){
-          increase++;
-        } else if (trackedNum > arr[j]){
-          decrease++;
-        } else if (trackedNum === arr[j]){
-          same++;
-        }
-      }
-      if (same === arr.length - 1){
-        break;
-      }
-    }
-    if (same === arr.length - 1 && increase === 0 && decrease === 0){
-      return 5
-    } else if (increase != 0 && decrease != 0 && same != 0){
-      return 0;
-    } else if(increase != 0 && decrease === 0 && same === 0){
-      return 1;
-    } else if(increase != 0 && decrease === 0 && same != 0){
-      return 2;
-    } else if (increase === 0 && decrease != 0 && same === 0){
-      return 3;
-    } else if (increase === 0 && decrease != 0 && same != 0){
-      return 4;
+  let trackedNum = 0;
+  let increase = 0;
+  let decrease = 0;
+  let same = 0;
+  for (let i = 0; i < arr.length; i++){
+    trackedNum = arr[i];
+    if (trackedNum < arr[i+1]){
+        increase++;
+    } else if (trackedNum > arr[i+1]){
+        decrease++;
+    } else if (trackedNum === arr[i+1]){
+        same++;
     }
   }
+  if (same === arr.length - 1 && increase === 0 && decrease === 0){
+    return 5
+  } else if (increase != 0 && decrease != 0){
+    return 0;
+  } else if(increase != 0 && decrease === 0 && same === 0){
+    return 1;
+  } else if(increase != 0 && decrease === 0 && same != 0){
+    return 2;
+  } else if (increase === 0 && decrease != 0 && same === 0){
+    return 3;
+  } else if (increase === 0 && decrease != 0 && same != 0){
+    return 4;
+  }
+}
   
 /*
 describe("Basic tests",() =>{
