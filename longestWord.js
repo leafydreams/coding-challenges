@@ -9,6 +9,8 @@ Output: love
  */
 
 function LongestWord(sen) { 
-    let words = sen.split(' ').sort((a, b) => b.length - a.length);
-    return words[0];
-  }
+  let words = sen.replace(/[^a-zA-Z ]/g, "")
+                  .split(' ')
+                  .sort((a, b) => b.length - a.length);
+  return words[0];
+}
